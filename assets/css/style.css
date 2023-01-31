@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 :root {
-  --primary-color: rgb(17, 86, 102);
-  --primary-color-darker: rgb(9, 48, 56);
+  --primary-color:linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
 }
 
 * {
@@ -16,14 +15,17 @@ body {
   font-family: 'Open sans', sans-serif;
   font-size: 1.3em;
   line-height: 1.5em;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
   max-width: 640px;
   margin: 50px auto;
-  background: #fff;
+  background:rgba(255,255,255,0.5);
   padding: 20px;
   border-radius: 10px;
+
 }
 
 form input, form label, form button {
@@ -42,22 +44,53 @@ form input:focus {
   outline: 1px solid var(--primary-color);
 }
 
-form button {
+
+
+button{
+  display: inline-block;
+  width: 200px;
+  font-size: 1.3em;
+  font-family: 'Open Sans', sans-serif;
   border: none;
-  background: var(--primary-color);
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+  top: 9px;
+  bottom: 20px;
+  overflow: hidden;
+  padding: 10px;
+  background-color: #D9AFD9;
+}
+
+button:after{
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #3cc7d6;
+  transition: all .35s;
+  bottom: 10px;
+}
+
+button:hover{
   color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  height: 50px;
-  cursor: pointer;
-  margin-top: 30px;
 }
 
-form button:hover {
-  background: var(--primary-color-darker);
+button:hover:after{
+  width: 100%;
+  content: "Verificar IMC";
+  padding: 10px;
 }
 
-.paragrafo-resultado, .bad {
+#resultado{
+  position: relative;
+  top: 20px;
+}
+
+.paragrafo-resultado,.bad {
   background: rgb(109, 255, 182);
   padding: 10px 20px;
 }
